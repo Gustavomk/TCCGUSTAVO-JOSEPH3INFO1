@@ -1,0 +1,146 @@
+body {
+	background-color: #BDB1B1;
+	margin: 0;
+}
+h1 {
+	text-align: center;
+}
+.header {
+	width: 100%;
+	height: 15%;
+	margin-bottom: 85%;
+	background-color: #BDB1B1;
+	position: fixed;
+
+}
+#nav { 
+	width: 20%;
+	height: 99%;
+	margin-top: 1%;
+	margin-left: 80%;
+	position: fixed;
+}
+#nav ul {
+	    list-style:none;
+}
+#nav ul li a {
+	width: 52px;
+	height: 26px;
+	background: rgba(255,255,255,0);
+	border: 1px solid #000000;
+	border-radius: 20px;
+	text-decoration: none;
+	font-size: 20px;
+	padding: 10px;
+	color: #000000;
+}
+.box1 {
+	height: 97%;
+	margin-bottom: -1%;
+}
+.img {
+	width: 100%;
+	height: 91%;
+	margin-top: 9%;
+	border: 1px solid #000000;
+}
+
+.header_1 {
+	height: 42px;
+	background-color: #A5A5A5;
+	border: 1px solid #000000;
+	border-radius: 0px;
+	position: fixed;
+	display: flex;   
+	flex-direction: row;
+}
+.linhas{
+	color: #000000;
+	font-family: 'Source Sans Pro';
+	font-size: 16px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	text-align: left;
+	padding: 10px;
+	background: #C4F6B1;
+	border: 1px solid #000000;
+	border-radius: 25px
+}
+
+.tudodireita{
+	margin-top: 5%;
+	background: #C4F6B1;
+	border: 1px solid #000000;
+	border-radius: 20px;
+	margin-right: 55px;
+	float: right; 
+	width: 40%; 
+}
+.tudoesquerda{
+	margin-left: 55px;
+float: left;
+ width: 45%;
+
+}
+
+#nav_1 {
+	 width: 2000px;
+}
+
+#nav_1 ul{
+	list-style:none;
+width:70%; 
+height:12.5px; 
+margin:0 auto; 
+padding: 12px; 
+}
+#nav_1 ul li {
+margin-top: 10%;
+display: inline;  
+padding:93px;
+}
+#nav_1 ul li a{
+color:black; 
+font-family:sans-serif; 
+font-weight: normal;
+font-style: normal;
+font-size:20px; 
+text-decoration:none; 
+
+}
+#pamonhaslinha{
+	color: #000000;
+font-family: 'Source Sans Pro';
+font-size: 18px;
+font-weight: normal;
+font-style: normal;
+text-decoration: none;
+text-align: left;
+padding: 10px;
+background: #8FF42B;
+border: 1px solid #000000;
+border-radius: 12px;
+}
+#selectradial{
+	font-size: 18px;
+	color: #000000;
+text-decoration: none;
+background: rgba(255,255,255,0);
+border: 1px solid #000000;
+border-radius: 0px;
+}
+
+.botao{
+	color: #000000;
+	font-family: 'Source Sans Pro';
+	font-size: 16px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	text-align: left;
+	padding: 10px;
+	background: #8ff42b;
+	border: 1px solid #000000;
+	border-radius: 25px
+}
