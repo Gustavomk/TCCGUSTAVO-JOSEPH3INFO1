@@ -6,11 +6,32 @@
 	<link rel="stylesheet" type="text/css" href="Passagem.css">
 </head>
 <body>
-	
+	<?php
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpassword = "";
+    $dbname = "bd_tcc_gujo_20";
+
+    $link = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname) or die('Error
+    connecting to MySQL Server.'); 
+    session_start();
+	function isLoggedIn()
+	{
+	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
+	{
+	return false;
+	}
+	return true;
+	}
+	if (!isLoggedIn())
+	{
+	header('Location: Login.php');
+	}
+    ?>
 	<div class="header">
 	<nav id="nav">
 		<ul>
-			<li><a href="Cadastro.php">Sair</a></li>
+			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>
 

@@ -14,8 +14,22 @@
 
     $link = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname) or die('Error
     connecting to MySQL Server.'); 
+        session_start();
+	function isLoggedIn()
+	{
+	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
+	{
+	return false;
+	}
+	return true;
+	}
+	if (!isLoggedIn())
+	{
+	header('Location: Login.php');
+	}
+	$UserId = $_SESSION['user_id'];
 if ($_POST) {
-	    $query1 = "select id_usuario from usuario order by id_usuario desc limit 1;";
+	    $query1 = "select id_usuario from usuario where id_Usuario = '$UserId';";
 		$result1 = mysqli_query( $link, $query1 ) or die('Falha 1, Por favor reinicie a pagina e tente novamente');
 		while ( $row = mysqli_fetch_assoc( $result1 ) ) {
 			$tabela[] = $row;
@@ -29,14 +43,14 @@ if ($_POST) {
 		$result3 = mysqli_query( $link, $query3 ) or die('Falha 3, Por favor reinicie a pagina e tente novamente');
 	}
 	}
-		header('location:Cadastro.php');
+		header('location:Logout.php');
 }
 
     ?>
 	<div class="header">
 	<nav id="nav">
 		<ul>
-			<li><a href="Cadastro.php">Sair</a></li>
+			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>
 

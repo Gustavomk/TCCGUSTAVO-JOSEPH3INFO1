@@ -44,6 +44,10 @@
 			$result2 = mysqli_query( $link, $query2 ) or die ("Falha no Sistema!");
 			$pass = mysqli_fetch_array($result2);
 			if ($pass) {
+				session_start();
+					$_SESSION['logged_in'] = true;
+					$_SESSION['user_id'] = $user['id_Usuario'];
+					$_SESSION['user_name'] = $user['login'];
 				header("location:Inicio.php");
 			}
 			else {

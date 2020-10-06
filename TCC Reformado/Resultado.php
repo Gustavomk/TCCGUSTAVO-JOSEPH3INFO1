@@ -14,14 +14,26 @@
 
     $link = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname) or die('Error
     connecting to MySQL Server.'); 
-
+    session_start();
+	function isLoggedIn()
+	{
+	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
+	{
+	return false;
+	}
+	return true;
+	}
+	if (!isLoggedIn())
+	{
+	header('Location: Login.php');
+	}
 
     $busca = $_POST['tBusca'];
     ?>
 	<div class="header">
 	<nav id="nav">
 		<ul>
-			<li><a href="Cadastro.php">Sair</a></li>
+			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>
 

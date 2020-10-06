@@ -15,15 +15,28 @@
     $link = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname) or die('Error
     connecting to MySQL Server.'); 
     
-    $query = "select nome_completo, login, email, sexo, telefone, data_nasc, Descricao from usuario, tipo_usuario
-where tipo_usuario.Usuario_id_Usuario = usuario.id_Usuario order by id_usuario desc limit 1;";
-	$result = mysqli_query( $link, $query ) or die('Falha, Por favor reinicie a pagina e tente novamente');
 
+    session_start();
+	function isLoggedIn()
+	{
+	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
+	{
+	return false;
+	}
+	return true;
+	}
+	if (!isLoggedIn())
+	{
+	header('Location: Login.php');
+	}
+	$UserId = $_SESSION['user_id'];
+	$query = "select id_Usuario, nome_completo, login, email, sexo, telefone, data_nasc, Descricao from usuario, tipo_usuario where tipo_usuario.Usuario_id_Usuario = usuario.id_Usuario and id_Usuario = '$UserId';";
+	$result = mysqli_query( $link, $query ) or die('Falha, Por favor reinicie a pagina e tente novamente');
     ?>
 	<div class="header">
 	<nav id="nav">
 		<ul>
-			<li><a href="Cadastro.php">Sair</a></li>
+			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>
 
