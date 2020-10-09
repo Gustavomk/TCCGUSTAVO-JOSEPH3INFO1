@@ -14,6 +14,7 @@
 
     $link = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname) or die('Error
     connecting to MySQL Server.'); 
+
         session_start();
 	function isLoggedIn()
 	{
@@ -27,10 +28,22 @@
 	{
 	header('Location: Login.php');
 	}
+		$Ola = $_SESSION['user_id'];
+	    $queryOla = "SELECT id_Usuario, login from usuario Where id_Usuario = '$Ola';";
+		$resultOla = mysqli_query( $link, $queryOla ) or die('Falha 1, Por favor reinicie a pagina e tente novamente');	    
+    		while ( $rowOla = mysqli_fetch_assoc( $resultOla ) ) {
+			$tabelaOla[] = $rowOla;
+			}
+		if ($tabelaOla) { 
+			foreach($tabelaOla as $colunaOla) {	
+		$OlaUsuario = $colunaOla["login"];
+	}
+	}
     ?>
 	<div class="header">
 	<nav id="nav">
 		<ul>
+			<li> Olá <?php echo $OlaUsuario; ?>! </li>
 			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>

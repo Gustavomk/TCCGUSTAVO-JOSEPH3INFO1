@@ -23,6 +23,9 @@ h1 {
 #nav ul {
 	    list-style:none;
 }
+#nav ul li {
+display: inline;  
+}
 #nav ul li a {
 	width: 52px;
 	height: 26px;

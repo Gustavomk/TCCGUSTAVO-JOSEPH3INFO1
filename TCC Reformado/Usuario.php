@@ -32,10 +32,22 @@
 	$UserId = $_SESSION['user_id'];
 	$query = "select id_Usuario, nome_completo, login, email, sexo, telefone, data_nasc, Descricao from usuario, tipo_usuario where tipo_usuario.Usuario_id_Usuario = usuario.id_Usuario and id_Usuario = '$UserId';";
 	$result = mysqli_query( $link, $query ) or die('Falha, Por favor reinicie a pagina e tente novamente');
+    		$Ola = $_SESSION['user_id'];
+	    $queryOla = "SELECT id_Usuario, login from usuario Where id_Usuario = '$Ola';";
+		$resultOla = mysqli_query( $link, $queryOla ) or die('Falha 1, Por favor reinicie a pagina e tente novamente');	    
+    		while ( $rowOla = mysqli_fetch_assoc( $resultOla ) ) {
+			$tabelaOla[] = $rowOla;
+			}
+		if ($tabelaOla) { 
+			foreach($tabelaOla as $colunaOla) {	
+		$OlaUsuario = $colunaOla["login"];
+	}
+	}
     ?>
 	<div class="header">
 	<nav id="nav">
 		<ul>
+			<li> Olá <?php echo $OlaUsuario; ?>! </li>
 			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>

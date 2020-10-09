@@ -113,8 +113,8 @@ if ($senha == $confiSenha){
         <label for="cPas"> Passageiro </label></br>
         <input type="radio" value="Cobrador" name="tTipo" id="cTipo" required/>
         <label for="cCob"> Cobrador </label>
-        <input type="radio" value="Deficiencia" name="tTipo" id="cTipo" required/>
-        <label for="cDef"> Deficiencia </label></p>
+        <input type="radio" value="Deficiente" name="tTipo" id="cTipo" required/>
+        <label for="cDef"> Deficiente </label></p>
 
         <input type="submit" value="Cadatrar!" id="Cad">
 

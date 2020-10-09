@@ -30,6 +30,10 @@
 
 	</div>
 	<div class="box2">
+	</br>
+	</br>
+		<h1>Coloque suas credenciais aqui para entrar no site!</h1>
+	</br>
 	<?php
 	if ($_POST) {
 		$login = $_POST['tNome'];

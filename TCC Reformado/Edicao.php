@@ -38,12 +38,23 @@
 		$id_usuario = $coluna["id_Usuario"];
 	}
 	}
-
+		$Ola = $_SESSION['user_id'];
+	    $queryOla = "SELECT id_Usuario, login from usuario Where id_Usuario = '$Ola';";
+		$resultOla = mysqli_query( $link, $queryOla ) or die('Falha 1, Por favor reinicie a pagina e tente novamente');	    
+    		while ( $rowOla = mysqli_fetch_assoc( $resultOla ) ) {
+			$tabelaOla[] = $rowOla;
+			}
+		if ($tabelaOla) { 
+			foreach($tabelaOla as $colunaOla) {	
+		$OlaUsuario = $colunaOla["login"];
+	}
+	}
 ?>
 
 	<div class="header">
 	<nav id="nav">
 		<ul>
+			<li> Olá <?php echo $OlaUsuario; ?>! </li>
 			<li><a href="Logout.php">Sair</a></li>
 		</ul>
 	</nav>
@@ -148,7 +159,28 @@ if ($_POST) {
 	<?php
 		}
 }
-		while ( $row = mysqli_fetch_assoc( $result ) ) {
+
+?>
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+			<p class="t2">Nome Completo </br> <input type="text" name="tName" id="input" size="45"
+  maxlength="45" placeholder="<?php echo $coluna["nome_completo"] ?>" type="cName" /> </p>
+
+			<p class="t2">Nome De Usuário </br> <input type="text" name="tNome" id="input" size="45"
+  maxlength="45" placeholder="<?php echo $coluna["login"] ?>" type="cNome" /> </p>
+
+  			<p class="t2">Email </br> <input type="text" name="tEmail" id="input" size="45"
+  maxlength="45" placeholder="<?php echo $coluna["email"] ?>" type="cEmail" /> </p>
+
+  	  <p class="t2"> Gênero </br>
+	  	<input type="radio" value="Masculino" name="tSexo" id="cGen" <?php if ($coluna["sexo"] == "Masculino") { ?> Checked <?php } ?>/>
+        <label for="cMasc"> Masculino </label>
+        <input type="radio" value="Feminino" name="tSexo" id="cGen" <?php if ($coluna["sexo"] == "Feminino") { ?> Checked <?php } ?>/>
+        <label for="cFem"> Feminino</label>
+        <input type="radio" value="Outro" name="tSexo" id="cGen" <?php if ($coluna["sexo"] == "Outro") { ?> Checked <?php } ?>/>
+        <label for="cFem"> Outro</label></p>
+
+ 	 <p>Data de nascimento:  	<?php
+ 	 		while ( $row = mysqli_fetch_assoc( $result ) ) {
 	$tabela[] = $row;
 	}
 
@@ -158,47 +190,18 @@ if ($tabela) { //Check if there are any rows to be displayed
 	
 
 	?>
-<p class="t1"><?php echo $coluna["nome_completo"] ?></p>
+<?php echo $coluna["data_nasc"]; ?>
 
-<p class="t1"><?php echo $coluna["login"] ?></p>
-
-<p class="t1"><?php echo $coluna["email"] ?></p>
-
-<p class="t1"><?php echo $coluna["sexo"] ?></p>
-
-<p class="t1"><?php echo $coluna["telefone"] ?></p>
-
-<p class="t1"><?php echo $coluna["data_nasc"] ?></p>
-
-<p class="t1"><?php echo $coluna["Descricao"] ?></p>
 
 	<?php
 
 	}
 	}
-
 ?>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-			<p class="t2">Nome Completo </br> <input type="text" name="tName" id="input" size="45"
-  maxlength="45" placeholder="Nome Sobrenome" type="cName" /> </p>
+   <input type="date" name="tNasc" id="input" /></p>
 
-			<p class="t2">Nome De Usuário </br> <input type="text" name="tNome" id="input" size="45"
-  maxlength="45" placeholder="NomeUsuario123" type="cNome" /> </p>
 
-  			<p class="t2">Email </br> <input type="text" name="tEmail" id="input" size="45"
-  maxlength="45" placeholder="NomeDoEmail@Email.com" type="cEmail" /> </p>
-
-  	  <p class="t2"> Gênero </br>
-	  	<input type="radio" value="Masculino" name="tSexo" id="cGen" />
-        <label for="cMasc"> Masculino</label>
-        <input type="radio" value="Feminino" name="tSexo" id="cGen" />
-        <label for="cFem"> Feminino</label>
-        <input type="radio" value="Outro" name="tSexo" id="cGen" />
-        <label for="cFem"> Outro</label></p>
-
- 	 <p>Data de nascimento: <input type="date" name="tNasc" id="input" /></p>
-  
-  	<p>Telefone: <input type="tel" id="input" name="tFone" placeholder="xxxxx-xxxx" pattern="^\d{5}-\d{4}$"  /> </p>
+  	<p>Telefone: <input type="tel" id="input" name="tFone" placeholder="<?php echo $coluna["telefone"] ?>" pattern="^\d{5}-\d{4}$"  /> </p>
  
   				<p class="t2">Senha </br> <input type="password" name="tSenha" id="input" size="45"
   maxlength="45" type="cSenha" /> </p>
@@ -207,14 +210,14 @@ if ($tabela) { //Check if there are any rows to be displayed
   maxlength="45" type="cSenha" /> </p>
   	  
   	  <p class="t2"> Tipo de Usuário </br>
-	  	<input type="radio" value="Motorista" name="tTipo" id="cTipo" />
+	  	<input type="radio" value="Motorista" name="tTipo" id="cTipo" <?php if ($coluna["Descricao"] == "Motorista") { ?> Checked <?php } ?>/>
         <label for="cMot"> Motorista </label>
-        <input type="radio" value="Passageiro" name="tTipo" id="cTipo" />
+        <input type="radio" value="Passageiro" name="tTipo" id="cTipo" <?php if ($coluna["Descricao"] == "Passageiro") { ?> Checked <?php } ?>/>
         <label for="cPas"> Passageiro </label></br>
-        <input type="radio" value="Cobrador" name="tTipo" id="cTipo" />
+        <input type="radio" value="Cobrador" name="tTipo" id="cTipo" <?php if ($coluna["Descricao"] == "Cobrador") { ?> Checked <?php } ?>/>
         <label for="cCob"> Cobrador </label>
-        <input type="radio" value="Deficiencia" name="tTipo" id="cTipo" />
-        <label for="cDef"> Deficiencia </label></p>
+        <input type="radio" value="Deficiente" name="tTipo" id="cTipo" <?php if ($coluna["Descricao"] == "Deficiente") { ?> Checked <?php } ?>/>
+        <label for="cDef"> Deficiente </label></p>
 
         <input type="submit" value="Alterar Informações!" id="Editar">
 
