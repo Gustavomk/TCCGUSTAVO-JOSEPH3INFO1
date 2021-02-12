@@ -1,5 +1,5 @@
 body {
-	background-color: #BDB1B1;
+   background: linear-gradient(#CBD4C0,#D2D0D0);
 	margin: 0;
 }
 h1 {
@@ -48,15 +48,14 @@ display: inline;
 	border: 1px solid #000000;
 }
 .box2	{ 
-	height: 500px;
-    background: linear-gradient(#CBD4C0,#D2D0D0);
+	flex-direction: row;
 	}
 
 .Box2_1{
 	width: 50%;
 	margin-right: 25%;
 	margin-left: 25%;
-	height: 450px;
+	margin-bottom: 3%;
 	background: #A5A5A5;
 	border: 1px solid #000000;
 	border-radius: 0px;   
@@ -94,10 +93,15 @@ text-decoration:none;
 
 }
 .Box2_1_1 {
-	height: 60%;
 	border-radius: 0px;  
 	flex-direction: row;
 }
 .t1 {
-		margin-left: 20%; 
+	margin-left: 20%; 
+}
+p {
+	margin-left: 17%;
+}
+h2{
+	margin-left: 13%;
 }

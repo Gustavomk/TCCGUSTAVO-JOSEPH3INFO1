@@ -38,35 +38,13 @@
 		$OlaUsuario = $colunaOla["login"];
 	}
 	}
-    error_reporting(E_ERROR | E_WARNING);
 	if ($_POST) {
-	$linha = $_POST['linha'];
 	$pay = $_POST['paymethod'];
 	}
 	else{
-		$linha = '3';
+
 		$pay = '';
 	}
-	    $querymap = "select Cord_Inicio , Parada from percurso, paradas where percurso.idPercurso = paradas.percurso_idPercurso and idPercurso = $linha;";
-	$resultmap = mysqli_query( $link, $querymap ) or die('Falha, Por favor reinicie a pagina e tente novamente');
-		
-		$addr = array();
-		
-		while ( $rowmap = mysqli_fetch_assoc( $resultmap ) ) {
-			$tabelamap[] = $rowmap;
-			}
-		if ($tabelamap) { 
-			foreach($tabelamap as $colunamap) {	
-
-		$saddr= $colunamap["Cord_Inicio"];
-		
-
-		$daddr= $colunamap["Parada"];
-
-		array_push($addr,$daddr);
-	}
-	}
-
     ?>
 	<div class="header">
 	<nav id="nav">
@@ -97,27 +75,53 @@
 	<div class="tudo">
 </br>
 		<div class="tudodireita">
-			<fieldset class="linhas"><legend>Linhas</legend>
-				<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-  <label for="linhas"><p id="lel">Escolha Linha</p></label>
-  <select name="linha" id="pamonhaslinha">
-<optgroup>
-	<option value="1" name="linha">Linha1</option>
-	<option value="2" name="linha">Linha2</option>
-	<option value="3" name="linha">Linha3</option>
-	<option value="4" name="linha">Linha4</option>
-</optgroup>
-  </select>
-  <input type="submit" value="Ver Mapa" class="botao">
-</form>
-				<form method="post" action="compra.php">
+
+
    <p id="lel">Forma de pagamento</p>
    <p id="lel"><?php if ($pay) { echo "$pay";}?></p>
-  <input type="radio" name="paymethod" value="paypal" id="lel">paypal</input><br/><br/>
-  <input type="radio" name="paymethod" value="boleto" id="lel">boleto</input><br/><br/>
-  <input type="radio" name="paymethod" value="cartao de credito" id="lel">cartao de credito</input><br/><br/>
+<?php
+if ($pay == 'paypal'){
+ ?>
+<form method="post" action="">
+	<p class="t2">Login</br> <input type="text" name="tLogin" id="input" size="45"
+  maxlength="45" placeholder="login" type="cLogin" /> </p>
+
+			<p class="t2">Senha </br> <input type="text" name="tSenha" id="input" size="45"
+  maxlength="45" placeholder="senha" type="cSenha" /> </p>
+
   <input type="submit" value="comprar" class="botao">
 </form>
+<?php
+}
+elseif ($pay == 'boleto') {
+	?>
+	<form method="post" action="">
+	<p class="t2">Nome Completo</br> <input type="text" name="tNome" id="input" size="45"
+  maxlength="45" placeholder="Nome Completo" type="cNome" /> </p>
+
+    <p>Telefone: <input type="tel" id="input" name="tFone" placeholder="99999-9999" pattern="^\d{5}-\d{4}$"  /> </p>
+
+
+  	<p class="t2">Email </br> <input type="text" name="tEmail" id="input" size="45"
+  maxlength="45" placeholder="email@email.com" type="cEmail" /> </p>
+
+  	<p>CPF <input type="tel" id="input" name="tcpf" placeholder="12345678912-34" pattern="^\d{11}-\d{2}$"  /> </p>
+
+  <input type="submit" value="comprar" class="botao">
+</form>
+<?php
+}
+elseif ($pay == 'cartao de credito') {
+	?>
+	<form method="post" action="">
+	<p class="t2">Conta Bancaria</br> <input type="text" name="tConta" id="input" size="45"
+  maxlength="45" placeholder="Conta Bancaria" type="cConta" /> </p>
+
+  <input type="submit" value="comprar" class="botao">
+</form>
+<?php
+}
+?>
 </fieldset>
 </div>
 <div class="tudoesquerda">

@@ -39,6 +39,31 @@
 		$OlaUsuario = $colunaOla["login"];
 	}
 	}
+		if ($_POST) {
+	$linha = $_POST['linha'];
+	}
+	else{
+		$linha = '3';
+	}
+	    $querymap = "select Cord_Inicio , Parada from percurso, paradas where percurso.idPercurso = paradas.percurso_idPercurso and idPercurso = $linha;";
+	$resultmap = mysqli_query( $link, $querymap ) or die('Falha, Por favor reinicie a pagina e tente novamente');
+		
+		$addr = array();
+		
+		while ( $rowmap = mysqli_fetch_assoc( $resultmap ) ) {
+			$tabelamap[] = $rowmap;
+			}
+		if ($tabelamap) { 
+			foreach($tabelamap as $colunamap) {	
+
+		$saddr= $colunamap["Cord_Inicio"];
+		
+
+		$daddr= $colunamap["Parada"];
+
+		array_push($addr,$daddr);
+	}
+	}
     ?>
 	<div class="header">
 	<nav id="nav">
@@ -73,17 +98,21 @@
 					<h1>Principais Linhas</h1>
 					</br>
 					  <label for="linhas"><p id="lel">Escolha Linha</p></label>
+					<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
 					  <select name="linha" id="pamonhaslinha">
 					<optgroup>
-						<option value="linha1">linha1</option>
-						<option value="linha2">linha2</option>
-						<option value="linha3">linha3</option>
-						<option value="linha4">linha4</option>
+						<option value="1" name="linha">Linha1</option>
+						<option value="2" name="linha">Linha2</option>
+						<option value="3" name="linha">Linha3</option>
+						<option value="4" name="linha">Linha4</option>
 					</optgroup>
 					  </select>
+					  <input type="submit" value="Ver Mapa" class="botao">
+					</form>
 					</br>
 					</br>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14283.417719920002!2d-49.09181785!3d-26.492631499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1596814754634!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					<p id="lel"><?php echo 'Linha'.$linha;?></p>
+	     			 <iframe src="https://maps.google.com/maps?saddr=<?php echo $saddr;?>&daddr=<?php echo $addr[0]; foreach($addr as $cordmap){ echo '+to:'.$cordmap;}?>&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 					</br>
 					</br>
 					</br>
