@@ -45,6 +45,7 @@ if ($_POST) {
     $tipo = $_POST['tTipo'];
 
 if ($senha == $confiSenha){
+
 	    $query = "Insert INTO usuario(nome_completo, login, email, sexo, telefone, data_nasc, senha) 
 	    VALUES ('$nome', '$login', '$mail', '$sexo', '$fone', '$nasc', '$senha');";
 		$result = mysqli_query( $link, $query ) or die('Falha 1, Por favor reinicie a pagina e tente novamente');
@@ -60,14 +61,25 @@ if ($senha == $confiSenha){
 		$result2 = mysqli_query( $link, $query2 ) or die('Falha 3, Por favor reinicie a pagina e tente novamente');
 		
 		}
-		}
+		 
+			if ($tipo == 'Motorista') {
+			
+				header("location:Motorista.php");
+				}
 		?>
-		<h2>Cadastrado com Sucesso</h2>
+		<script> 
+			alert('Cadastrado com Sucesso');
+
+	</script>
 		<?php
+	}
 	}
 	else {
 	 ?>
-	 <h2> Confirmar Senha não coincide com a Senha.</h2>
+		<script> 
+			alert('Confirmar Senha não coincide com a Senha.');
+
+	</script>
 	<?php
 		}
 }
@@ -98,7 +110,7 @@ if ($senha == $confiSenha){
 
  	 <p>Data de nascimento: <input type="date" name="tNasc" id="input" required/></p>
   
-  	<p>Telefone: <input type="tel" id="input" name="tFone" placeholder="xxxxx-xxxx" pattern="^\d{5}-\d{4}$" required /> </p>
+  	<p>Telefone: <input type="tel" id="input" name="tFone" placeholder="(99) 99999-9999" pattern="(+^\d{5}+)+ ^\d{5}-\d{4}$" required /> </p>
  
   				<p class="t2">Senha </br> <input type="password" name="tSenha" id="input" size="90"
   maxlength="100" type="cSenha" required/> </p>

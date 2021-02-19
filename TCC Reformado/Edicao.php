@@ -145,17 +145,44 @@ if ($_POST) {
 		}
 		if ($tipo) {
 
+			if ($coluna["Descricao"] != "Motorista") { 
+
+			if ($tipo == 'Motorista') {
+			
+			header("location:MotoEdicao.php");
+			}
+			else{
 		    $query8 = "UPDATE tipo_usuario SET Descricao = '$tipo' WHERE Usuario_id_usuario = '$id_usuario';";
 		        
 		    $result8 = mysqli_query( $link, $query8 ) or die('Falha 8, Por favor reinicie a pagina e tente novamente');
+		    		header("location:Usuario.php");
+				
+			}
+			}
+			else{
+		    $query8 = "UPDATE tipo_usuario SET Descricao = '$tipo' WHERE Usuario_id_usuario = '$id_usuario';";
+		        
+		    $result8 = mysqli_query( $link, $query8 ) or die('Falha 8, Por favor reinicie a pagina e tente novamente');
+		    		header("location:Usuario.php");
 		}
+		}
+		else{
 		header("location:Usuario.php");
+
+		}
+		
+
+		
+
 
 
 	}
 	else {
 	 ?>
-	 <p class="t1"> Confirmar Senha não coincide com a nova Senha.</p>
+		<script> 
+			alert('Confirmar Senha não coincide com a Senha.');
+
+	</script>
 	<?php
 		}
 }

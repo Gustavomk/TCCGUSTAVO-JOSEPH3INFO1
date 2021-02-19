@@ -30,7 +30,7 @@
 	header('Location: Login.php');
 	}
 	$UserId = $_SESSION['user_id'];
-	$query = "select id_Usuario, nome_completo, login, email, sexo, telefone, data_nasc, Descricao from usuario, tipo_usuario where tipo_usuario.Usuario_id_Usuario = usuario.id_Usuario and id_Usuario = '$UserId';";
+	$query = "select id_Usuario, nome_completo, login, email, sexo, telefone, data_nasc, tipo_carteira, CNH_Motorista, Descricao from usuario, tipo_usuario where tipo_usuario.Usuario_id_Usuario = usuario.id_Usuario and id_Usuario = '$UserId';";
 	$result = mysqli_query( $link, $query ) or die('Falha, Por favor reinicie a pagina e tente novamente');
     		$Ola = $_SESSION['user_id'];
 	    $queryOla = "SELECT id_Usuario, login from usuario Where id_Usuario = '$Ola';";
@@ -86,19 +86,33 @@ if ($tabela) { //Check if there are any rows to be displayed
 	
 
 	?>
-<p><?php echo $coluna["nome_completo"] ?></p>
+<p><?php echo $coluna["nome_completo"]; ?></p>
 
-<p><?php echo $coluna["login"] ?></p>
+<p><?php echo $coluna["login"]; ?></p>
 
-<p><?php echo $coluna["email"] ?></p>
+<p><?php echo $coluna["email"]; ?></p>
 
-<p><?php echo $coluna["sexo"] ?></p>
+<p><?php echo $coluna["sexo"]; ?></p>
 
-<p><?php echo $coluna["telefone"] ?></p>
+<p><?php echo $coluna["telefone"]; ?></p>
 
-<p><?php echo $coluna["data_nasc"] ?></p>
+<p><?php echo $coluna["data_nasc"]; ?></p>
 
-<p><?php echo $coluna["Descricao"] ?></p>
+<p><?php echo $coluna["Descricao"]; ?></p>
+
+<?php  
+
+if (!empty($coluna["tipo_carteira"]) ) {
+	
+	?><p><?php echo $coluna["tipo_carteira"]; ?></p>
+	<?php
+}
+if (!empty($coluna["CNH_Motorista"]) ) {
+	
+	?><p><?php echo $coluna["CNH_Motorista"]; ?></p>
+	<?php
+}
+?>
 
 <h2><a href="Edicao.php">Clique aqui para editar seu usuário!</a></h2>
 

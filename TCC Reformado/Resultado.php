@@ -151,8 +151,9 @@
 }
 	?>
 				</br>
-
+				<a id="Voltar" href="Busca.php">Voltar</a>
 				<p class="t1"> </p>
+
 				</br>
 
   		    </div>

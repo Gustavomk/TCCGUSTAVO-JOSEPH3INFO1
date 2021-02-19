@@ -55,12 +55,16 @@
 				header("location:Inicio.php");
 			}
 			else {
-			?> <h1>Senha Incorreta</h1>
+			?> <script>
+			alert(Senha Incorreta)
+			</script>
 			<?php
 			}
 		}
 		else {
-			?> <h1>Nome de usuario incorreto</h1>
+			?> <Script>
+			alert(Nome de usuario incorreto)
+			</script>
 			<?php
 		}
 	}

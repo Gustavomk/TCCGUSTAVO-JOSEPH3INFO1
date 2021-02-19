@@ -43,9 +43,9 @@
 	$linha = $_POST['linha'];
 	}
 	else{
-		$linha = '3';
+		$linha = rand (1, 8);
 	}
-	    $querymap = "select Cord_Inicio , Parada from percurso, paradas where percurso.idPercurso = paradas.percurso_idPercurso and idPercurso = $linha;";
+	    $querymap = "select Cord_Inicio , nome_percurso , Parada from percurso, paradas where percurso.idPercurso = paradas.percurso_idPercurso and idPercurso = $linha;";
 	$resultmap = mysqli_query( $link, $querymap ) or die('Falha, Por favor reinicie a pagina e tente novamente');
 		
 		$addr = array();
@@ -55,9 +55,10 @@
 			}
 		if ($tabelamap) { 
 			foreach($tabelamap as $colunamap) {	
-
+		
 		$saddr= $colunamap["Cord_Inicio"];
 		
+		$NomePer = $colunamap["nome_percurso"];
 
 		$daddr= $colunamap["Parada"];
 
@@ -99,19 +100,24 @@
 					</br>
 					  <label for="linhas"><p id="lel">Escolha Linha</p></label>
 					<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-					  <select name="linha" id="pamonhaslinha">
+					<select name="linha" id="pamonhaslinha">
 					<optgroup>
-						<option value="1" name="linha">Linha1</option>
-						<option value="2" name="linha">Linha2</option>
-						<option value="3" name="linha">Linha3</option>
-						<option value="4" name="linha">Linha4</option>
-					</optgroup>
+						<option value="1" name="linha">Araquari (Ida)</option>
+						<option value="2" name="linha">Araquari (Volta)</option>
+						<option value="3" name="linha">Trevo (Ida)</option>
+						<option value="4" name="linha">Trevo (Volta)</option>
+						<option value="5" name="linha">São Francisco do Sul (Ida)</option>
+						<option value="6" name="linha">São Francisco do Sul (Volta)</option>
+						<option value="7" name="linha">Porto Grande (Ida)</option>
+						<option value="8" name="linha">Porto Grande (Volta)</option>						
+					</optgroup>	
+
 					  </select>
 					  <input type="submit" value="Ver Mapa" class="botao">
 					</form>
 					</br>
 					</br>
-					<p id="lel"><?php echo 'Linha'.$linha;?></p>
+					<p id="lel"><?php echo 'Mostrando a Linha: '. $NomePer;?></p>
 	     			 <iframe src="https://maps.google.com/maps?saddr=<?php echo $saddr;?>&daddr=<?php echo $addr[0]; foreach($addr as $cordmap){ echo '+to:'.$cordmap;}?>&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 					</br>
 					</br>

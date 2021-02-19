@@ -39,15 +39,21 @@
 	}
 	}
     error_reporting(E_ERROR | E_WARNING);
-	if ($_POST) {
+	if ($_POST['linha']) {
 	$linha = $_POST['linha'];
+	}
+	else{
+		$linha = rand (1, 8);
+	}
+	if ($_POST['paymethod']) {
 	$pay = $_POST['paymethod'];
 	}
 	else{
-		$linha = '3';
 		$pay = '';
 	}
-	    $querymap = "select Cord_Inicio , Parada from percurso, paradas where percurso.idPercurso = paradas.percurso_idPercurso and idPercurso = $linha;";
+
+
+	    $querymap = "select Cord_Inicio , nome_percurso , Parada from percurso, paradas where percurso.idPercurso = paradas.percurso_idPercurso and idPercurso = $linha;";
 	$resultmap = mysqli_query( $link, $querymap ) or die('Falha, Por favor reinicie a pagina e tente novamente');
 		
 		$addr = array();
@@ -60,6 +66,7 @@
 
 		$saddr= $colunamap["Cord_Inicio"];
 		
+		$NomePer = $colunamap["nome_percurso"];
 
 		$daddr= $colunamap["Parada"];
 
@@ -98,19 +105,24 @@
 </br>
 		<div class="tudodireita">
 			<fieldset class="linhas"><legend>Linhas</legend>
+			<p id="lel"><?php echo 'Mostrando a Linha: '. $NomePer;?></p>
 				<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-  <label for="linhas"><p id="lel">Escolha Linha</p></label>
+  <label for="linhas"><p id="lel">Escolha a Linha</p></label>
   <select name="linha" id="pamonhaslinha">
-<optgroup>
-	<option value="1" name="linha">Linha1</option>
-	<option value="2" name="linha">Linha2</option>
-	<option value="3" name="linha">Linha3</option>
-	<option value="4" name="linha">Linha4</option>
-</optgroup>
+	<optgroup>
+		<option value="1" name="linha">Araquari (Ida)</option>
+		<option value="2" name="linha">Araquari (Volta)</option>
+		<option value="3" name="linha">Trevo (Ida)</option>
+		<option value="4" name="linha">Trevo (Volta)</option>
+		<option value="5" name="linha">São Francisco do Sul (Ida)</option>
+		<option value="6" name="linha">São Francisco do Sul (Volta)</option>
+		<option value="7" name="linha">Porto Grande (Ida)</option>
+		<option value="8" name="linha">Porto Grande (Volta)</option>						
+	</optgroup>
   </select>
   <input type="submit" value="Ver Mapa" class="botao">
 </form>
-				<form method="post" action="compra.php">
+				<form method="post" action="Compra.php">
    <p id="lel">Forma de pagamento</p>
    <p id="lel"><?php if ($pay) { echo "$pay";}?></p>
   <input type="radio" name="paymethod" value="paypal" id="lel">paypal</input><br/><br/>
