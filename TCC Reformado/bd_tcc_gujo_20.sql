@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Fev-2021 às 13:21
+-- Tempo de geração: 19-Fev-2021 às 15:20
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -194,8 +194,10 @@ CREATE TABLE `onibus` (
 --
 
 INSERT INTO `onibus` (`NumOnibus`, `HorariosOnibus`, `Nome_Onibus`, `Tipo_Onibus`) VALUES
-(0, '16:45-19:45', 'Panetone', '1'),
-(1, '16:45-19:45', 'Panetone', '1');
+(0, '04:45-08:00', '544-3 - ARAQUARI', '1'),
+(1, '12:10-17:10', '544-2 - TREVO', '1'),
+(2, '06:00-21:00', '544-5 - SÃO FRANCISCO DO SUL', '1'),
+(3, '11:20-18:20', '544-1 - PORTO GRANDE', '1');
 
 -- --------------------------------------------------------
 
@@ -214,10 +216,95 @@ CREATE TABLE `paradas` (
 --
 
 INSERT INTO `paradas` (`Cd_Paradas`, `Parada`, `percurso_idPercurso`) VALUES
-(1, '-26.4821205,-49.0814032', 3),
-(2, '-26.4885456,-49.0830045', 3),
-(3, '-26.4940286,-49.0872078', 3),
-(4, '-25.4623372,-49.5311985', 4);
+(5, '-26.3018889,-48.8417233', 5),
+(6, '-26.3109111,-48.8455687', 5),
+(7, '-26.3299619,-48.8466223', 5),
+(8, '-26.3547138,-48.8465801', 5),
+(9, '-26.374477,-48.832219', 5),
+(10, '-26.4183727,-48.7795074', 5),
+(11, '-26.3771836,-48.7194306', 5),
+(12, '-26.3760559,-48.7196721', 5),
+(13, '-26.3720973,-48.7231166', 5),
+(14, '-26.3696777,-48.7209301', 5),
+(15, '-26.3692109,-48.7189904', 5),
+(16, '-26.3711527,-48.7130368', 5),
+(17, '-26.2986086,-48.6411654', 5),
+(19, '-26.2707699,-48.6408368', 5),
+(20, '-26.2677386,-48.6414572', 5),
+(21, '-26.253193,-48.6425199', 5),
+(22, '-26.251151,-48.6380713', 5),
+(23, '-26.249266,-48.6352327', 5),
+(24, '-26.2468231,-48.6338569', 6),
+(25, '-26.2501271,-48.6313484', 6),
+(26, '-26.2483799,-48.6378458', 6),
+(27, '-26.3698205,-48.7163119', 6),
+(28, '-26.3744469,-48.7202827', 6),
+(29, '-26.3775128,-48.7197527', 6),
+(30, '-26.374477,-48.832219', 6),
+(31, '-26.3547138,-48.8465801', 6),
+(32, '-26.3154502,-48.8426427', 6),
+(33, '-26.3016338,-48.846875', 6),
+(34, '-26.3007174,-48.8417323', 6),
+(35, '-26.3005174,-48.8423281', 6),
+(37, '-26.3018889,-48.8417233', 7),
+(38, '-26.3109111,-48.8455687', 7),
+(39, '-26.3299619,-48.8466223', 7),
+(40, '-26.3547138,-48.8465801', 7),
+(41, '-26.374477,-48.832219', 7),
+(42, '-26.416255,-48.755186', 7),
+(43, '-26.419761,-48.754063', 7),
+(44, '-26.394547,-48.738591', 7),
+(47, '-26.374477,-48.832219', 8),
+(48, '-26.3547138,-48.8465801', 8),
+(49, '-26.3154502,-48.8426427', 8),
+(50, '-26.3016338,-48.846875', 8),
+(51, '-26.3007174,-48.8417323', 8),
+(52, '-26.3005174,-48.8423281', 8),
+(53, '-26.3018889,-48.8417233', 3),
+(54, '-26.3109111,-48.8455687', 3),
+(55, '-26.3299619,-48.8466223', 3),
+(56, '-26.3547138,-48.8465801', 3),
+(57, '-26.374477,-48.832219', 3),
+(58, '-26.398021,-48.797519', 3),
+(59, '-26.400846,-48.799719', 3),
+(60, '-26.406660,-48.801678', 3),
+(61, '-26.410890,-48.807761', 3),
+(62, '-26.404760,-48.792466', 3),
+(63, '-26.406507,-48.793278', 3),
+(64, '-26.420170,-48.790953', 3),
+(65, '-26.420760,-48.787371', 3),
+(66, '-26.406507,-48.793278', 4),
+(67, '-26.404760,-48.792466', 4),
+(68, '-26.411309,-48.807869', 4),
+(69, '-26.406660,-48.801678', 4),
+(70, '-26.400846,-48.799719', 4),
+(71, '-26.398021,-48.797519', 4),
+(72, '-26.374477,-48.832219', 4),
+(73, '-26.3547138,-48.8465801', 4),
+(74, '-26.3154502,-48.8426427', 4),
+(75, '-26.3016338,-48.846875', 4),
+(76, '-26.3007174,-48.8417323', 4),
+(77, '-26.3005174,-48.8423281', 4),
+(78, '-26.3018889,-48.8417233', 1),
+(79, '-26.3109111,-48.8455687', 1),
+(80, '-26.3299619,-48.8466223', 1),
+(81, '-26.3547138,-48.8465801', 1),
+(82, '-26.374477,-48.832219', 1),
+(83, '-26.4183727,-48.7795074', 1),
+(84, '-26.3771836,-48.7194306', 1),
+(85, '-26.3760559,-48.7196721', 1),
+(86, '-26.3720973,-48.7231166', 1),
+(87, '-26.3696777,-48.7209301', 1),
+(88, '-26.3692109,-48.7189904', 1),
+(89, '-26.3698205,-48.7163119', 1),
+(90, '-26.3744469,-48.7202827', 2),
+(91, '-26.3775128,-48.7197527', 2),
+(92, '-26.374477,-48.832219', 2),
+(93, '-26.3547138,-48.8465801', 2),
+(94, '-26.3154502,-48.8426427', 2),
+(95, '-26.3016338,-48.846875', 2),
+(96, '-26.3007174,-48.8417323', 2),
+(97, '-26.3005174,-48.8423281', 2);
 
 -- --------------------------------------------------------
 
@@ -228,16 +315,23 @@ INSERT INTO `paradas` (`Cd_Paradas`, `Parada`, `percurso_idPercurso`) VALUES
 CREATE TABLE `percurso` (
   `idPercurso` int(11) NOT NULL,
   `Cord_Inicio` varchar(100) NOT NULL,
-  `onibus_NumOnibus` int(11) NOT NULL
+  `onibus_NumOnibus` int(11) NOT NULL,
+  `nome_percurso` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `percurso`
 --
 
-INSERT INTO `percurso` (`idPercurso`, `Cord_Inicio`, `onibus_NumOnibus`) VALUES
-(3, '-26.47926424615351,-49.08636458895767', 0),
-(4, '-25.4619007,-49.5289857', 1);
+INSERT INTO `percurso` (`idPercurso`, `Cord_Inicio`, `onibus_NumOnibus`, `nome_percurso`) VALUES
+(1, '-26.3005174,-48.8423281', 0, 'Araquari (Ida)'),
+(2, '-26.3698205,-48.7163119', 0, 'Araquari (Volta)'),
+(3, '-26.3005174,-48.8423281', 1, 'Trevo (Ida)'),
+(4, '-26.420760, -48.787371', 1, 'Trevo (Volta)'),
+(5, '-26.3005174,-48.8423281', 2, 'São Francisco do Sul (Ida)'),
+(6, '-26.249266,-48.6352327', 2, 'São Francisco do Sul (Volta)'),
+(7, '-26.3005174,-48.8423281', 3, 'Porto Grande (Ida)'),
+(8, '-26.394547,-48.738591', 3, 'Porto Grande (Volta)');
 
 -- --------------------------------------------------------
 
@@ -270,11 +364,14 @@ CREATE TABLE `tipo_usuario` (
 
 INSERT INTO `tipo_usuario` (`idTipo_Usuario`, `Descricao`, `Usuario_id_Usuario`, `especialização_idespecialização`) VALUES
 (1, 'Motorista', 10, 10),
-(7, 'Motorista', 37, 37),
+(7, 'Passageiro', 37, 37),
 (9, 'Passageiro', 11, 11),
 (10, 'Passageiro', 12, 12),
 (11, 'Passageiro', 13, 13),
-(12, 'Passageiro', 14, 14);
+(12, 'Passageiro', 14, 14),
+(18, 'Passageiro', 44, 44),
+(27, 'Motorista', 53, 53),
+(28, 'Motorista', 54, 54);
 
 -- --------------------------------------------------------
 
@@ -312,22 +409,25 @@ CREATE TABLE `usuario` (
   `senha` varchar(45) NOT NULL,
   `sexo` varchar(45) NOT NULL,
   `telefone` varchar(45) NOT NULL,
-  `CNH` varchar(45) DEFAULT NULL,
-  `tipo_carteira` int(11) DEFAULT NULL,
-  `data_nasc` varchar(10) DEFAULT NULL
+  `CNH_Motorista` varchar(11) NOT NULL,
+  `tipo_carteira` varchar(1) NOT NULL,
+  `data_nasc` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_Usuario`, `nome_completo`, `login`, `email`, `senha`, `sexo`, `telefone`, `CNH`, `tipo_carteira`, `data_nasc`) VALUES
-(10, 'Picollo', 'picolo', 'Picolino.Freitas@email.com', 'aaa', 'Masculino', '99 9999-9999', NULL, NULL, '2002-02-02'),
-(11, 'jubiscleusa de Fatima', 'jubiscleusa', 'jubiscleusa.Fatima@email.com', 'yubiwayumidesu', 'Feminino', '99 9999-9998', NULL, NULL, '2004-10-13'),
-(12, 'Otto Silva', 'OttSil', 'Otto.Silva@email.com', 'otto51lv4', 'Masculino', '98 8888-8889', NULL, NULL, '2001-01-01'),
-(13, 'Herdbert Bixards', 'HxHunter', 'Herbert.Bixards@email.com', 'Zépovin06123', 'Masculino', '12 3456-7890', NULL, NULL, '2006-03-23'),
-(14, 'Pedro Rocha', 'proca101010', 'pedraolokao@email.com', '01010000 01010010 ', 'Masculino', '78 9042-3132', NULL, NULL, '2012-07-15'),
-(37, 'Session', 'Session', 'Session@gmail.com', 'session', 'Outro', '00000-0000', NULL, NULL, '2020-10-21');
+INSERT INTO `usuario` (`id_Usuario`, `nome_completo`, `login`, `email`, `senha`, `sexo`, `telefone`, `CNH_Motorista`, `tipo_carteira`, `data_nasc`) VALUES
+(10, 'Picollo', 'picolo', 'Picolino.Freitas@email.com', 'aaa', 'Masculino', '99 9999-9999', '22222222222', 'B', '2002-02-02'),
+(11, 'jubiscleusa de Fatima', 'jubiscleusa', 'jubiscleusa.Fatima@email.com', 'yubiwayumidesu', 'Feminino', '99 9999-9998', '0', '', '2004-10-13'),
+(12, 'Otto Silva', 'OttSil', 'Otto.Silva@email.com', 'otto51lv4', 'Masculino', '98 8888-8889', '0', '', '2001-01-01'),
+(13, 'Herdbert Bixards', 'HxHunter', 'Herbert.Bixards@email.com', 'Zépovin06123', 'Masculino', '12 3456-7890', '0', '', '2006-03-23'),
+(14, 'Pedro Rocha', 'proca101010', 'pedraolokao@email.com', '01010000 01010010 ', 'Masculino', '78 9042-3132', '0', '', '2012-07-15'),
+(37, 'Session', 'Session', 'Session@gmail.com', 'session', 'Outro', '00000-0000', '0', '', '2020-10-21'),
+(44, 'Joseph Henrique', 'de Lara Barreto', 'josephhgodin@gmail.com', 'senha', 'Masculino', '(99) 99999-9999', '21474836478', 'B', '2021-02-18'),
+(53, 'tomori', 'Tmri', 'Tomori@gmail.com', 'miau', 'Feminino', '(47) 99999-9999', '12345678910', 'B', '2021-02-02'),
+(54, 'gustavo', 'gordo', 'gusgordo@gmail.com', 'freefire', 'Feminino', '(69) 96969-6969', '69696969696', 'B', '2021-02-28');
 
 --
 -- Índices para tabelas despejadas
@@ -413,13 +513,13 @@ ALTER TABLE `cidade`
 -- AUTO_INCREMENT de tabela `paradas`
 --
 ALTER TABLE `paradas`
-  MODIFY `Cd_Paradas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Cd_Paradas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT de tabela `percurso`
 --
 ALTER TABLE `percurso`
-  MODIFY `idPercurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idPercurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `ruas`
@@ -431,7 +531,7 @@ ALTER TABLE `ruas`
 -- AUTO_INCREMENT de tabela `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
-  MODIFY `idTipo_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idTipo_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `uf`
@@ -443,7 +543,7 @@ ALTER TABLE `uf`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- Restrições para despejos de tabelas
